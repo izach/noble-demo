@@ -1,0 +1,23 @@
+{
+  "name": "noble-demo",
+  "version": "1.0.0",
+  "description": "Demo using Noble (A Node.js BLE) module.",
+  "main": "noble-demo-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/izach/noble-demo.git"
+  },
+  "keywords": [
+    "noble",
+    "ibeacons"
+  ],
+  "author": "Isaac Herrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/izach/noble-demo/issues"
+  },
+  "homepage": "https://github.com/izach/noble-demo"
+}
