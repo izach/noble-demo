@@ -4,7 +4,13 @@
 var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var io = require('socket.io')(http, {
+    allowUpgrades: true,
+    transports: ['websocket', 'flashsocket', 'polling'],
+    'log level': 1,
+    'pingTimeout': 1000 * 80,
+    'pingInterval': 1000 * 25
+});
 
 var scanner = io.of('/scanner');
 
