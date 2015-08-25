@@ -4,7 +4,19 @@
 var noble = require('noble');
 
 //replace localhost with your server's IP;
-var socket = require('socket.io-client')('http://localhost/scanner');
+var socket = require('socket.io-client')('http://localhost/scanner',{
+    'forceNew': true,
+    'sync disconnect on unload': true,
+    reconnect: false,
+    transports: ['websocket'],
+    query: {
+        bestvid: "___" + bestId + "___",
+        client_id: clientId,
+        client_name: bestId,
+        token: token,
+        platform: platform
+    }
+});
 
 //replace with your hardware address
 var addressToTrack = '7c669d9b2dda';
