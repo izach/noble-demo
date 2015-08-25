@@ -4,7 +4,7 @@
 var noble = require('noble');
 
 //replace localhost with your server's IP;
-var socket = require('socket.io-client')('http://10.7.21.27/scanner');
+var socket = require('socket.io-client')('http://localhost/scanner');
 
 //replace with your hardware address
 var addressToTrack = '7c669d9b2dda';
