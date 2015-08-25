@@ -13,6 +13,18 @@ socket.on('connect', function(){
     console.log('connected to server');
 });
 
+socket.on('connect_error', function(error){
+    console.log('connected to server' + error);
+});
+
+socket.on("event", function(data){
+    console.log("Event:"  + data);
+});
+
+socket.on("disconnect", function(){
+    console.log('disconnected from server');
+});
+
 noble.on('discover', function(peripheral){
 
     //if(peripheral.uuid == addressToTrack){
