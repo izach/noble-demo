@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/izach/noble-demo/issues"
   },
-  "homepage": "https://github.com/izach/noble-demo"
+  "homepage": "https://github.com/izach/noble-demo",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }

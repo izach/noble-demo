@@ -14,10 +14,9 @@ socket.on('connect', function(){
 });
 
 noble.on('discover', function(peripheral){
-    console.log("Found device: " + JSON.stringify(peripheral));
 
     //if(peripheral.uuid == addressToTrack){
-        //console.log('deviceData', {mac: peripheral.uuid, rssi:peripheral.rssi});
+        console.log('deviceData', {mac: peripheral.uuid, rssi:peripheral.rssi});
         socket.emit('deviceData', {mac: peripheral.uuid, rssi:peripheral.rssi});
     //}
 });
