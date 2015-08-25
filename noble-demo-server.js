@@ -5,7 +5,7 @@
 console.log('Init app...');
 var noble = require('noble');
 console.log('Start scanning..');
-noble.startScanning(); // any service UUID, no duplicates
+//noble.startScanning(); // any service UUID, no duplicates
 
 
 /*noble.startScanning([], true); // any service UUID, allow duplicates
@@ -22,5 +22,15 @@ noble.on('discover', function(peripheral) {
     var macAddress = peripheral.uuid;
     var rss = peripheral.rssi;
     var localName = advertisement.localName;
-    console.log('found device: ', macAdress, ' ', localName, ' ', rss);
+    console.log('found device: ', macAddress, ' ', localName, ' ', rss);
+});
+
+noble.on('stateChange', function(state) {
+    if (state === 'poweredOn') {
+        console.log('Start scanning..');
+        noble.startScanning(['a495ff10c5b14b44b5121370f02d74de']);
+    } else {
+        console.log('Stop scanning..');
+        noble.stopScanning();
+    }
 });
