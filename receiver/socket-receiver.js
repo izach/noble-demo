@@ -13,8 +13,10 @@ scanner.on('connection', function(socket) {
     console.log('Scanner Connected');
 
     socket.on('message', function(msg) {
-        //recived message from scanner
+        //received message from scanner
         //do some processing here
+        //console.log("Message: " + JSON.stringify(msg));
+        console.log( msg );
     });
 
     socket.on('disconnect', function() {
