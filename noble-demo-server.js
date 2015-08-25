@@ -4,7 +4,7 @@
 
 console.log('Init app...');
 var noble = require('noble');
-console.log('Start scanning..');
+//console.log('Start scanning..');
 //noble.startScanning(); // any service UUID, no duplicates
 
 
@@ -26,6 +26,7 @@ noble.on('discover', function(peripheral) {
 });
 
 noble.on('stateChange', function(state) {
+    console.log("State: " + state);
     if (state === 'poweredOn') {
         console.log('Start scanning..');
         noble.startScanning(['a495ff10c5b14b44b5121370f02d74de']);
