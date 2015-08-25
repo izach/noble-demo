@@ -10,11 +10,11 @@ var socket = require('socket.io-client')('http://localhost/scanner',{
     reconnect: false,
     transports: ['websocket'],
     query: {
-        bestvid: "___" + bestId + "___",
-        client_id: clientId,
-        client_name: bestId,
-        token: token,
-        platform: platform
+        bestvid: "___" + "asafw2" + "___",//bestId
+        client_id: 1,//clientId,
+        client_name: 2,//bestId,
+        token: "12qw",//token,
+        platform: "12qfsv34" //platform
     }
 });
 
