@@ -4,7 +4,7 @@
 var noble = require('noble');
 
 //replace localhost with your server's IP;
-var socket = require('socket.io-client')('http://localhost/scanner',{
+var socket = require('socket.io-client')('http://10.7.21.27:3000/scanner',{
     'forceNew': true,
     'sync disconnect on unload': true,
     reconnect: false,
@@ -22,11 +22,11 @@ var socket = require('socket.io-client')('http://localhost/scanner',{
 var addressToTrack = '7c669d9b2dda';
 
 socket.on('connect', function(){
-    console.log('connected to server');
+    console.log('connected to server successfully');
 });
 
 socket.on('connect_error', function(error){
-    console.log('connected to server' + error);
+    console.log(error);
 });
 
 socket.on("event", function(data){
@@ -40,8 +40,8 @@ socket.on("disconnect", function(){
 noble.on('discover', function(peripheral){
 
     //if(peripheral.uuid == addressToTrack){
-        console.log('deviceData', {mac: peripheral.uuid, rssi:peripheral.rssi});
-        socket.emit('deviceData', {mac: peripheral.uuid, rssi:peripheral.rssi});
+        console.log('deviceData', { localName: peripheral.advertisement.localName, mac: peripheral.uuid, rssi:peripheral.rssi});
+        socket.emit('deviceData', { localName: peripheral.advertisement.localName, mac: peripheral.uuid, rssi:peripheral.rssi});
     //}
 });
 

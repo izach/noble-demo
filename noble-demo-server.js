@@ -23,6 +23,9 @@ noble.on('discover', function(peripheral) {
     var rss = peripheral.rssi;
     var localName = peripheral.advertisement.localName;
     console.log('Found device: ', macAddress, ' ', localName, ' ', rss);
+    // print uuid, major, minor
+
+
     //console.log("Found device: " + peripheral );
     //console.log( peripheral );
     //console.log('found device: ', macAddress, ' ', localName, ' ', rss);
