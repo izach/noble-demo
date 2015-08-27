@@ -40,6 +40,7 @@ socket.on("disconnect", function(){
 
 noble.on('discover', function(peripheral){
 
+    console.log("Device found: " + peripheral.uuid);
     if(peripheral.uuid == addressToTrack){
         console.log('deviceData', { localName: peripheral.advertisement.localName, mac: peripheral.uuid, rssi:peripheral.rssi});
         socket.emit('deviceData', { localName: peripheral.advertisement.localName, mac: peripheral.uuid, rssi:peripheral.rssi});
