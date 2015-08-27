@@ -19,7 +19,8 @@ var socket = require('socket.io-client')('http://10.7.21.27:3000/scanner',{
 });
 
 //replace with your hardware address
-var addressToTrack = '7c669d9b2dda';
+//var addressToTrack = '7c669d9b2dda';
+var addressToTrack = 'c2ab96ddc4ed';
 
 socket.on('connect', function(){
     console.log('connected to server successfully');
@@ -39,10 +40,10 @@ socket.on("disconnect", function(){
 
 noble.on('discover', function(peripheral){
 
-    //if(peripheral.uuid == addressToTrack){
+    if(peripheral.uuid == addressToTrack){
         console.log('deviceData', { localName: peripheral.advertisement.localName, mac: peripheral.uuid, rssi:peripheral.rssi});
         socket.emit('deviceData', { localName: peripheral.advertisement.localName, mac: peripheral.uuid, rssi:peripheral.rssi});
-    //}
+    }
 });
 
 //noble.startScanning([], true); //allows duplicates while scanning
@@ -52,7 +53,8 @@ noble.on('stateChange', function(state) {
     if (state === 'poweredOn') {
         console.log('Start scanning..');
         //noble.startScanning(['a495ff10c5b14b44b5121370f02d74de']);
-        noble.startScanning(); // any service UUID, no duplicates
+        //noble.startScanning(); // any service UUID, no duplicates
+        noble.startScanning([],true); // //allows duplicates while scanning
     } else {
         console.log('Stop scanning..');
         noble.stopScanning();
