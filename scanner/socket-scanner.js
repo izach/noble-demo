@@ -20,7 +20,7 @@ var socket = require('socket.io-client')('http://10.7.21.27:3000/scanner',{
 
 //replace with your hardware address
 //var addressToTrack = '7c669d9b2dda';
-//var addressToTrack = 'c2ab96ddc4ed'; // ice not found
+//var addressToTrack = 'c2ab96ddc4ed'; // ice not found because device was connected to the ipod
 var addressToTrack = 'f94b9286781c';
 
 socket.on('connect', function(){
