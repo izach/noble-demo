@@ -5,6 +5,7 @@ var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
 var calculateDistance = require("./utils");
+var KalmanFilter = require("../server/KalmanFilter.js");
 var io = require('socket.io')(http, {
     allowUpgrades: true,
     transports: ['websocket'],// , 'flashsocket', 'polling'
@@ -26,9 +27,15 @@ scanner.on('connection', function(socket) {
         //do some processing here
         //console.log("Message: " + JSON.stringify(msg));
 
+        var rssiFiltered = KalmanFilter.filter(msg.rssi, msg.localName);
         var distance = calculateDistance( msg.rssi );
+        var distanceFiltered = calculateDistance( rssiFiltered );
+
         msg["distance"] = distance;
-        console.log( msg );
+        msg["distanceFiltered"] = distanceFiltered;
+        msg["rssiFiltered"] = rssiFiltered;
+        //console.log( msg );
+        console.log( "rssiRaw:" + msg.rssi + ", filtered:" + msg.rssiFiltered);
         scannerClient.emit('message', msg);
     });
 

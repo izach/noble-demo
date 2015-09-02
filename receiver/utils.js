@@ -11,8 +11,8 @@ module.exports = function(rssi){
      The txPower is the known measured signal strength in rssi at 1 meter away.
      Each iBeacon must be calibrated with this txPower value to allow accurate distance estimates.
      */
-    var txPower = -60; //hard coded power value. Usually ranges between -59 to -65
-    // 59, 65,
+    var txPower = -62; //hard coded power value. Usually ranges between -59 to -65
+    // 59, 65,60
     if (rssi == 0) {
         return -1.0; // if we cannot determine accuracy, return -1.
     }

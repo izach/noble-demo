@@ -1,0 +1,63 @@
+{
+    "address": "c2:ab:96:dd:c4:ed",
+    "advertisement": {
+        "localName": "EST",
+        "manufacturerData": {
+            "data": [
+                76,
+                0,
+                2,
+                21,
+                119,
+                197,
+                123,
+                85,
+                90,
+                150,
+                64,
+                254,
+                160,
+                127,
+                167,
+                255,
+                104,
+                95,
+                204,
+                245,
+                196,
+                237,
+                150,
+                221,
+                196
+            ],
+            "type": "Buffer"
+        },
+        "serviceData": [
+            {
+                "data": {
+                    "data": [
+                        237,
+                        196,
+                        221,
+                        150,
+                        171,
+                        194,
+                        196,
+                        237,
+                        196,
+                        221,
+                        150
+                    ],
+                    "type": "Buffer"
+                },
+                "uuid": "180a"
+            }
+        ],
+        "serviceUuids": [
+            "180f"
+        ]
+    },
+    "id": "c2ab96ddc4ed",
+    "rssi": -79,
+    "state": "disconnected"
+}
